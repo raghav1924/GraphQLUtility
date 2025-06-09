@@ -3,19 +3,10 @@ import Navbar from '@/component/Navbar';
 import DataInputField from '@/component/DataInputField';
 import CodeOutputPane from '@/component/CodeOutputPane';
 import { wrapFragments } from '@/helper/helper';
+import { fragmentsData } from '@/constant/static';
 
 export default function FragmentWrapperTool() {
-  const [inputText, setInputText] = useState(`import { gql } from 'graphql-tag';
-
-export const EMPLOYEE_BENEFIT_TABLE_FIELDS = gql\`
-fragment EmployeeBenefitTableFields on EmployeeBenefitTable {
-  PlanName
-  PlanType
-  CurrentPlanAssets
-  TotalPlanParticipants
-  CurrentFundingPercentage
-}
-\`;`);
+  const [inputText, setInputText] = useState(fragmentsData);
   const [wrappedOutput, setWrappedOutput] = useState('');
   const [error, setError] = useState('');
 
