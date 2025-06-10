@@ -31,13 +31,14 @@ export default function CodeOutputPane({
         </CopyToClipboard>
       </div>
 
-      {/* Content area (scrollable) */}
-      <div className="flex-1 bg-slate-800 p-4 overflow-auto font-mono text-sm">
+      {/* Content area: vertical scroll only, hide horizontal scrollbar */}
+      <div className="flex-1 bg-slate-800 p-4 overflow-y-auto overflow-x-hidden font-mono text-sm">
         <SyntaxHighlighter
-          language="graphql"
+          language="jsx"
           style={atomDark}
           customStyle={{ margin: 0, padding: 0, background: 'transparent' }}
-          wrapLines
+          wrapLines={true}
+           lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap'}}}
         >
           {code || placeholder}
         </SyntaxHighlighter>

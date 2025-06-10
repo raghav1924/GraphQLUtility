@@ -3,10 +3,20 @@ import Navbar from '@/component/Navbar';
 import DataInputField from '@/component/DataInputField';
 import CodeOutputPane from '@/component/CodeOutputPane';
 import { wrapFragments } from '@/helper/helper';
-import { fragmentsData } from '@/constant/static';
+
 
 export default function FragmentWrapperTool() {
-  const [inputText, setInputText] = useState(fragmentsData);
+  const [inputText, setInputText] = useState(`fragment addressFields on address {
+  street
+  city
+  zipCode
+  country
+}
+
+fragment contactFields on contact {
+  phone
+  address { ...addressFields }
+}`);
   const [wrappedOutput, setWrappedOutput] = useState('');
   const [error, setError] = useState('');
 
@@ -16,6 +26,8 @@ export default function FragmentWrapperTool() {
       setWrappedOutput(result);
       setError('');
     } catch (err) {
+      console.log(err);
+      
       setError('⚠️ Error while processing fragments');
       setWrappedOutput('');
     }

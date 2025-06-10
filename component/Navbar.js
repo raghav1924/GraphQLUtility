@@ -41,6 +41,18 @@ export default function Navbar() {
           >
             .js File Format
           </Link>
+          <Link
+            href="/stringifiedQueryAndMutation"
+            className="text-gray-400 hover:text-white text-sm"
+          >
+            .js → Stringified Object
+          </Link>
+          <Link
+            href="/unStringify"
+            className="text-gray-400 hover:text-white text-sm"
+          >
+            unstringify → .js 
+          </Link>
         </div>
       </div>
     </nav>
